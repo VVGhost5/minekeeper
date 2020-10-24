@@ -1,4 +1,4 @@
-import { arrayOfPoints } from '../index.js';
+import { objects } from '../index';
 
 const putValueofBomb = object => {
 
@@ -14,13 +14,13 @@ const putValueofBomb = object => {
   }
  
   const checkCoordinates = (position) => {
-    if (!arrayOfPoints[position]) {
+    if (!objects.arrayOfPoints[position]) {
       return;
     }
-    if (arrayOfPoints[position].isMine) {
+    if (objects.arrayOfPoints[position].isMine) {
       return;
     }
-arrayOfPoints[position].value++;
+objects.arrayOfPoints[position].value++;
   };
 
 

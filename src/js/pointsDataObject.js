@@ -9,6 +9,4 @@ class fieldData {
     }
 };
 
-
-
 export default fieldData;

@@ -2,7 +2,7 @@ html {
   box-sizing: border-box;
 }
 
-.menu {
+#menu {
   width: 540px;
   justify-content: space-between;
   text-align: center;
@@ -20,7 +20,7 @@ html {
   height: 18px;
 }
 
-.menu__prompt-button {
+#menu__prompt-button {
   display: block;
   border: 1px solid black;
 background-color: lightgrey;
@@ -34,7 +34,7 @@ width: 100%;
   color: black;
 }
 
-.game-field {
+#game-field {
   width: 540px;
   margin: 0 auto;
   border: 1px solid black;
@@ -65,34 +65,34 @@ width: 100%;
   background-color: lightgrey;
 }
 
-.one {
+.color_1 {
   background-color: lightgreen;
 }
 
-.two {
+.color_2 {
   background-color: lightblue;
 }
 
-.three {
+.color_3 {
   background-color: lightyellow;
 }
 
-.four {
+.color_4 {
   background-color: lightpink;
 }
 
-.five {
+.color_5 {
   background-color: lightcyan;
 }
 
-.six {
+.color_6 {
   background-color: coral;
 }
 
-.seven {
+.color_7 {
   background-color: lightsalmon;
 }
 
-.eight {
+.color_8 {
   background-color: indigo;
 }

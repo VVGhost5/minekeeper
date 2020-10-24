@@ -1,29 +1,22 @@
-import { arrayOfPoints } from '../index.js';
-
+import { objects } from '../index';
 
 const randomizeValue = () => {
-    let position = Math.floor(Math.random() * Math.floor(arrayOfPoints.length));
+    let position = Math.floor(Math.random() * Math.floor(objects.arrayOfPoints.length));
     return position;
 }
   
 const checkBombPresence = () => {
     let randomValue = randomizeValue();
-    console.log(`Случайное число - ${randomValue}`);
-if (arrayOfPoints[randomValue].isMine) {
-    console.log(`${randomizeValue()} Блять, тут мина !!! Делаю еще раз`);
+if (objects.arrayOfPoints[randomValue].isMine) {
   return checkBombPresence();
 } else {
-  console.log(`новое число - ${randomValue}`);
   return randomValue;
   }
-  
 }
   
 const createBomb = () => {
   checkBombPresence();
-  arrayOfPoints[checkBombPresence()].isMine = true;
-  console.log(`${arrayOfPoints[checkBombPresence()].position} тут мина`);
-    
+  objects.arrayOfPoints[checkBombPresence()].isMine = true;  
 }
 
 export default createBomb;
