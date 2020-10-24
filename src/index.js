@@ -1,13 +1,13 @@
 import './styles.css';
-import createBomb from './js/putBombs';
+
 import fieldData from './js/pointsDataObject';
-import putMines from './js/putMines';
 import putFlag from './js/putFlag';
-import showValue from './js/showValue';
+import openPoint from './js/openPoint';
 import createField from './js/createField';
 import deleteDefusedMine from './js/deleteDefused';
+import deleteFlag from './js/deleteFlag';
 import showPrompt from './js/showPrompt';
-import timer from './js/timer';
+import initGame from './js/initGame';
 import defeat from './js/defeat';
 
 const refs = {
@@ -63,29 +63,19 @@ const Click = event => {
         return putFlag(event);
     }
     if (objects.arrayOfPoints[event.target.dataset.value].isFlag) {
-        objects.arrayOfPoints[event.target.dataset.value].isFlag = false;
-        objects.flagsUsed--;
-        refs.menuFlagsRef.textContent = objects.flagsUsed;
-        return refs.gameFieldRef.children[event.target.dataset.value].textContent = "";
+        return deleteFlag(event);
     }
-    
+
     if (!objects.minesDropped) {
-        objects.bombsQuantity = refs.menuMinesRef.value;
-        refs.menuMinesRef.setAttribute('disabled', 'disabled');
-        multiplyBombs(createBomb, objects.bombsQuantity);
-        putMines();
-        objects.minesDropped = true;
-        timer();
+        initGame();
     }
 
     if (objects.arrayOfPoints[event.target.dataset.value].isOpened) {
         return;
     }
-             
+        
     if (!objects.arrayOfPoints[event.target.dataset.value].isMine) {
-        refs.gameFieldRef.children[event.target.dataset.value].classList.add('isOpened');
-        objects.arrayOfPoints[event.target.dataset.value].isOpened = true;
-        return showValue(event);
+        return openPoint(event);
     }
     defeat(); 
 } 
@@ -93,4 +83,4 @@ const Click = event => {
 refs.gameFieldRef.addEventListener('click', Click);
 refs.menuButtonRef.addEventListener('click', showPrompt);
 
-export { refs, objects, Click};
+export { refs, objects, Click, multiplyBombs};
